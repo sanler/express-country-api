@@ -10,8 +10,17 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.4",
+    "express": "^4.17.1",
     "hbs": "^4.0.3",
     "path": "^0.12.7"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sanler/express-get-params.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sanler/express-get-params/issues"
+  },
+  "homepage": "https://github.com/sanler/express-get-params#readme"
 }
