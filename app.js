@@ -6,12 +6,10 @@ const countries = require('./countries.json');
 console.log(countries);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
-
-
-app.get('/', (req, res, next) => {
-
-  res.render('index');
-
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
 });
 
 
@@ -20,7 +18,7 @@ app.get('/countries', (req, res, next) => {
 
 
 
-  res.send(countries);
+  res.json(countries);
 
 });
 
@@ -34,9 +32,10 @@ app.get('/countries/:code', (req, res, next) => {
     }
     return countries.find(theCountry)
   };
-  const foundCountry = getCountry(code,10);
+  const foundCountry=[];
+  foundCountry.push(getCountry(code,10));
 
-    res.send(foundCountry);
+    res.json(foundCountry);
   
   });
 
@@ -48,4 +47,4 @@ app.get('/search', (req, res, next) => {
 
   });
 
-app.listen(3000, () => console.log('App listening on port 3000!'))
+app.listen(3001, () => console.log('App listening on port 3000!'))
